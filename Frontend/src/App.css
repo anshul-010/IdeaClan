@@ -1,0 +1,75 @@
+/* Basic styling for the navbar */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 98.5vw;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(8, 44, 79, 0.867);
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  justify-content: space-evenly;
+  width: 100%;
+  font-weight: bold;
+  font-size: large;
+  cursor: pointer;
+ }
+
+
+/* Styling for the burger menu icon */
+.burger-menu {
+  cursor: pointer;
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+
+.burger-menu>img{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+/* Media query for responsiveness */
+@media (max-width: 800px) {
+  .navbar {
+    padding: 5px;
+    height: 6vh;
+    /* width: 100vw; */
+    color: black;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    /* width: 100%; */
+    position: absolute;
+    top: 6.1vh;
+    left: 0px;
+    padding: 1px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .burger-menu {
+    display: block;
+  }
+}
