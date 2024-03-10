@@ -9,7 +9,7 @@ export const AdminDashboard = () => {
 
   function getAllCourses(){
     setLoading(true)
-    axios.get(`http://localhost:8080/courses/course`)
+    axios.get(`https://ideaclan-5twr.onrender.com/courses/course`)
     .then((res)=>{
       setLoading(false)
       setTotalCourses(res.data.courses)

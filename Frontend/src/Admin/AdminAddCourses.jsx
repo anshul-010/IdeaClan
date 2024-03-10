@@ -18,7 +18,7 @@ export const AdminAddCourses = () => {
   function handleAddCourse() {
     setLoading(true)
 
-    axios.post(`http://localhost:8080/courses/add-courses`,{courseName,instructor})
+    axios.post(`https://ideaclan-5twr.onrender.com/courses/add-courses`,{courseName,instructor})
     .then((res)=>{
     setLoading(false)
 

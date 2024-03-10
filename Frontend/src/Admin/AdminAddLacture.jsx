@@ -10,7 +10,7 @@ export const AdminAddLacture = () => {
   const token = useSelector((store)=>store.AuthReducer.token)
   function getUsers(){
     setLoading(true)
-    axios.get(`http://localhost:8080/user/users`, {
+    axios.get(`https://ideaclan-5twr.onrender.com/user/users`, {
     headers: {
       Authorization: `${token}`
     }
@@ -23,7 +23,7 @@ export const AdminAddLacture = () => {
 
   function handleDelete(id){
     setLoading(true)
-    axios.delete(`http://localhost:8080/user/delete-user/${id}`, {
+    axios.delete(`https://ideaclan-5twr.onrender.com/user/delete-user/${id}`, {
     headers: {
       Authorization: `${token}`
     }

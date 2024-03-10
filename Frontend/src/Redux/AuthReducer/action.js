@@ -2,7 +2,7 @@ import axios from "axios"
 import { LOGIN_SUCCESS, LOGOUT } from "../actionType"
 
 export const registerNewUser=(data,navigate)=>(dispatch)=>{
-    axios.post(`http://localhost:8080/user/register`,data)
+    axios.post(`https://ideaclan-5twr.onrender.com/user/register`,data)
     .then((res)=>{
         console.log(res)
         dispatch({type:LOGIN_SUCCESS,payload:res})
@@ -11,7 +11,7 @@ export const registerNewUser=(data,navigate)=>(dispatch)=>{
 }
 
 export const LoginUser = (data,navigate)=> (dispatch)=> {
-    axios.post(`http://localhost:8080/user/login`,data)
+    axios.post(`https://ideaclan-5twr.onrender.com/user/login`,data)
     .then((res)=>{
        if(res.data.role==="admin"){
         console.log(res)
