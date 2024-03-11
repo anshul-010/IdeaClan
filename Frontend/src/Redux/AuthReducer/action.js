@@ -25,7 +25,6 @@ export const LoginUser = (data,navigate)=> (dispatch)=> {
     }))
 }
 
-export const logout =(navigate)=>(dispatch)=>{
+export const logout =(dispatch)=>{
     dispatch({type:LOGOUT})
-    navigate("/login")
 }

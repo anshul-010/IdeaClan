@@ -3,12 +3,14 @@ const cors = require('cors');
 const { connection } = require('./db');
 const { userRouter } = require('./Routes/UserRoute');
 const { courseRouter } = require('./Routes/CoursesRoute');
+const { LactureRoute } = require('./Routes/LactureRoute');
 
 const app = express();
 app.use(cors())
 app.use(express.json());
 app.use("/user",userRouter)
 app.use("/courses",courseRouter)
+app.use("/lacture",LactureRoute)
 app.get("/",(req,res)=>{
     res.send("welcome to home page")
 })

@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
   }
   try {
     const decoded = jwt.verify(token, "jwt_secret_key");
-    console.log(decoded.user.role=="student")
+    // console.log(decoded.user.role=="student")
     req.user = decoded.user;
     next();
   } catch (error) {

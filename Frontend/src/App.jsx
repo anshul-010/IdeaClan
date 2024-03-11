@@ -8,7 +8,8 @@ function App() {
   const useAdminNavbar =
     location.pathname === "/admin-dashboard" ||
     location.pathname === "/admin-addlactures"||
-    location.pathname === "/admin-addcourses" 
+    location.pathname === "/admin-addcourses" ||
+    location.pathname === "/admin-schedulelacture" 
   return (
     <>
       {useAdminNavbar ? <AdminNavbar /> : <Navbar />}

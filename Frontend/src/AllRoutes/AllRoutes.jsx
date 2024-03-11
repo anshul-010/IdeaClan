@@ -9,6 +9,7 @@ import { Private } from '../Pages/Private'
 import { AdminDashboard } from '../Admin/AdminDashboard'
 import { AdminAddCourses } from '../Admin/AdminAddCourses'
 import { AdminAddLacture } from '../Admin/AdminAddLacture'
+import { AdminScheduleLacture } from '../Admin/AdminScheduleLacture'
 
 export const AllRoutes = () => {
   return (
@@ -19,9 +20,10 @@ export const AllRoutes = () => {
             <Route path="courses" element={<Private><Courses/></Private>} />
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
-            <Route path="/admin-dashboard" element={<AdminDashboard/>} />
-            <Route path="/admin-addcourses" element={<AdminAddCourses/>} />
-            <Route path="/admin-addlactures" element={<AdminAddLacture/>} />
+            <Route path="/admin-dashboard" element={<Private><AdminDashboard/></Private>} />
+            <Route path="/admin-addcourses" element={<Private><AdminAddCourses/></Private>} />
+            <Route path="/admin-addlactures" element={<Private><AdminAddLacture/></Private>} />
+            <Route path="/admin-schedulelacture" element={<Private><AdminScheduleLacture/></Private>} />
         </Routes>
     </div>
   )

@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 const lactureSchema = mongoose.Schema({
-    lacture:String,
+    courses:String,
     instructor:String,
+    timing:String,
 },{
     versionKey:false
 });

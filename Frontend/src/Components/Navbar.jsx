@@ -2,14 +2,20 @@ import "../App.css";
 import { useState } from "react";
 import barger from "../Images/menu-bar.png";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/AuthReducer/action";
 export const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const isAuth = useSelector((store)=>store.AuthReducer.isAuth)
-
+  const dispatch = useDispatch()
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  function handleLogout(){
+    setIsNavOpen(true)
+    logout(dispatch)
+  }
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
@@ -35,7 +41,7 @@ export const Navbar = () => {
           </span></Link>
         </div>
         <div>
-        <Link to='/login'><span onClick={() => setIsNavOpen(true)}>{isAuth?"Logout":"Login"}</span></Link>
+        <Link to='/login'><span onClick={handleLogout}>{isAuth?"Logout":"Login"}</span></Link>
         </div>
         <div>
         <Link to='/profile'><span onClick={() => setIsNavOpen(true)}>Profile</span></Link>

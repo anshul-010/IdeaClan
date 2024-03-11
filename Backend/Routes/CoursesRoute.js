@@ -48,4 +48,8 @@ courseRouter.delete("/delete-course/:id",async(req,res)=>{
   }
 })
 
+// Add Lacture Schedule
+
+
+
 module.exports = {courseRouter}

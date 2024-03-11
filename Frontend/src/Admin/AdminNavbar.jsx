@@ -7,7 +7,6 @@ import { logout } from "../Redux/AuthReducer/action";
 export const AdminNavbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   const isAuth = useSelector((store)=>store.AuthReducer.isAuth)
   const toggleNav = () => {
@@ -16,15 +15,21 @@ export const AdminNavbar = () => {
 
   function handleLogout(){
     setIsNavOpen(true)
-    dispatch(logout(navigate))
+    logout(dispatch)
   }
+
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
         <div>
           <Link to='/admin-dashboard'><span className="nav-link" onClick={() => setIsNavOpen(true)}>
-            Dashboard
+          Courses
+          </span></Link>
+        </div>
+        <div>
+        <Link to='/admin-schedulelacture'><span className="nav-link" onClick={() => setIsNavOpen(true)}>
+            Schedule Lacture
           </span></Link>
         </div>
         <div>
