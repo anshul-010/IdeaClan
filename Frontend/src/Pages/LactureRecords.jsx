@@ -24,10 +24,10 @@ export const LactureRecords = ({data}) => {
         <Text fontSize="xl" color="gray.600">Instructor</Text>
         <Text fontSize="lg" color="gray.600">Nupul Dev</Text>
       </Box>
-      <Box w="180px">
+      {/* <Box w="180px">
         <Text fontSize="md" color="gray.600" alignSelf="center">19 Mar 2024, 15:00 pm</Text>
         <Text fontSize="md" color="gray.600" alignSelf="center">60 min.</Text>
-      </Box>
+      </Box> */}
       <Box w="90px" alignSelf="center" >
       <Button colorScheme='blue' variant='link' border="none">
                  Recording

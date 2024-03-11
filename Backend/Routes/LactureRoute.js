@@ -17,7 +17,7 @@ LactureRoute.get('/get-lacture',auth, async(req,res)=>{
 
 // get All Lactures
   
-LactureRoute.get('/get-lacture', async(req,res)=>{
+LactureRoute.get('/all-lacture', async(req,res)=>{
     try {
         const lactures = await LactureModel.find(); 
         res.status(200).send({ lactures: lactures });

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT } from "../actionType"
+import { GET_LACTURE_REQUEST, GET_LACTURE_SUCCESS, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT } from "../actionType"
 
 export const registerNewUser=(data,navigate)=>(dispatch)=>{
     dispatch({type:LOGIN_REQUEST})
@@ -23,6 +23,19 @@ export const LoginUser = (data,navigate)=> (dispatch)=> {
         dispatch({type:LOGIN_SUCCESS,payload:res})
         navigate("/")
     }))
+}
+
+
+export const getLactures=(token)=>(dispatch)=>{
+    dispatch({type:GET_LACTURE_REQUEST})
+    axios.get(`http://localhost:8080/lacture/get-lacture`,{
+        headers: {
+          Authorization: `${token}`
+        }
+      })
+    .then((res)=>{
+        dispatch({type:GET_LACTURE_SUCCESS,payload:res})
+    })
 }
 
 export const logout =(dispatch)=>{
