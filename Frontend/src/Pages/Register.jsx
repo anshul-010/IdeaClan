@@ -11,7 +11,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { registerNewUser } from "../Redux/AuthReducer/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const initialData = {
   name: "",
@@ -25,6 +25,9 @@ export const Register = () => {
   const [data, setData] = useState(initialData);
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const loading = useSelector((store)=>store.AuthReducer.isLoading)
+
+
   function handleChange(e) {
     const { name, value, checked } = e.target;
     if (name === "courses") {
@@ -56,6 +59,7 @@ export const Register = () => {
 
   return (
     <>
+    {loading && <Center><Heading color="gray.700" m="10px">Loading...</Heading></Center>}
       <Box display="flex"  width="100vw" justifyContent="center">
         <Box
           width={{ lg: "35vw", base: "80vw" }}

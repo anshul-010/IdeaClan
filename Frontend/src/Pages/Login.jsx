@@ -9,9 +9,10 @@ import {
   Input,
   Box,
   Flex,
+  Center,
 } from "@chakra-ui/react";
 import { LoginUser } from "../Redux/AuthReducer/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const initialData = {
   email: "",
@@ -20,6 +21,8 @@ const initialData = {
 
 export const Login = () => {
   const [data, setData] = useState(initialData);
+  // const [loading,setLoading] = useState(false);
+  const loading = useSelector((store)=>store.AuthReducer.isLoading)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   function handleChange(e) {
@@ -33,11 +36,13 @@ export const Login = () => {
   function handleSubmit(e) {
     e.preventDefault();
     setData(initialData)
-    dispatch(LoginUser(data,navigate))
+    dispatch(LoginUser(data,navigate));
   }
+
 
   return (
     <>
+    {loading && <Center><Heading color="gray.700" m="10px">Loading...</Heading></Center>}
       <Box display="flex"  width="100vw" justifyContent="center">
         <Box
           width={{ lg: "35vw", base: "80vw" }}
