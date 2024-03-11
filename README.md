@@ -17,8 +17,11 @@ This repository contains the code for a full-stack assignment to create a single
    -to view recorded lectures
    
 4.  *Admin side with all CRUD
+      -admin credentials
+       email: admin@gmail.com
+       password: admin
 
-5. *Responsiveness:*
+6. *Responsiveness:*
    - Application should be responsive for multiple screen sizes.
 
 
@@ -92,4 +95,4 @@ Open your browser and visit http://127.0.0.1:5173/ to view the application.
 
 ## Demo
 
-Check out the live demo on [Versel](https://idea-clan-l6sqcs7gs-anshuls-projects-20d2170b.vercel.app/login).
+Check out the live demo on [Versel](https://idea-clan-l6sqcs7gs-anshuls-projects-20d2170b.vercel.app).
