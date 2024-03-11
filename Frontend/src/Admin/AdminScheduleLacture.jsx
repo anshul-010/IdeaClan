@@ -28,7 +28,7 @@ export const AdminScheduleLacture = () => {
   }
 
   function handleAddLacture() {
-    axios.post(`http://localhost:8080/lacture/schedule`,data)
+    axios.post(`https://ideaclan-5twr.onrender.com/lacture/schedule`,data)
     .then((res)=>{
       console.log(res.data)
       toast({

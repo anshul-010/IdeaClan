@@ -28,7 +28,7 @@ export const LoginUser = (data,navigate)=> (dispatch)=> {
 
 export const getLactures=(token)=>(dispatch)=>{
     dispatch({type:GET_LACTURE_REQUEST})
-    axios.get(`http://localhost:8080/lacture/get-lacture`,{
+    axios.get(`https://ideaclan-5twr.onrender.com/lacture/get-lacture`,{
         headers: {
           Authorization: `${token}`
         }
