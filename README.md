@@ -95,4 +95,4 @@ Open your browser and visit http://127.0.0.1:5173/ to view the application.
 
 ## Demo
 
-Check out the live demo on [Versel](https://idea-clan-l6sqcs7gs-anshuls-projects-20d2170b.vercel.app).
+Check out the live demo on [Versel](https://idea-clan-anshuls-projects-20d2170b.vercel.app/).
