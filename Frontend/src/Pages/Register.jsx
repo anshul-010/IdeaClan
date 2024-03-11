@@ -9,6 +9,7 @@ import {
   Input,
   Box,
   Flex,
+  Center,
 } from "@chakra-ui/react";
 import { registerNewUser } from "../Redux/AuthReducer/action";
 import { useDispatch, useSelector } from "react-redux";
