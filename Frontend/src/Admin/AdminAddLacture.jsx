@@ -7,10 +7,11 @@ export const AdminAddLacture = () => {
   const [users, setUsers] = useState([])
   const [state,setState] = useState(false)
   const [loading, setLoading] = useState(false)
+  const apiUrl = import.meta.env.VITE_API_URL;
   const token = useSelector((store)=>store.AuthReducer.token)
   function getUsers(){
     setLoading(true)
-    axios.get(`https://ideaclan-5twr.onrender.com/user/users`, {
+    axios.get(`${apiUrl}/user/users`, {
     headers: {
       Authorization: `${token}`
     }
@@ -23,7 +24,7 @@ export const AdminAddLacture = () => {
 
   function handleDelete(id){
     setLoading(true)
-    axios.delete(`https://ideaclan-5twr.onrender.com/user/delete-user/${id}`, {
+    axios.delete(`${apiUrl}/user/delete-user/${id}`, {
     headers: {
       Authorization: `${token}`
     }

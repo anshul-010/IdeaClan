@@ -5,11 +5,11 @@ import React, { useEffect, useState } from "react";
 export const AdminDashboard = () => {
   const [totalCourses, setTotalCourses] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   function getAllCourses() {
     setLoading(true);
     axios
-      .get(`https://ideaclan-5twr.onrender.com/courses/course`)
+      .get(`${apiUrl}/courses/course`)
       .then((res) => {
         setLoading(false);
         setTotalCourses(res.data.courses);

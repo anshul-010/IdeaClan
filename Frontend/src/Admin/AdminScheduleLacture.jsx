@@ -8,7 +8,17 @@ import {
   Heading,
   useStatStyles,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
+import React, { useEffect, useState } from "react";
 import { useToast } from '@chakra-ui/react'
 import axios from "axios";
 let initialData = {
@@ -19,7 +29,11 @@ let initialData = {
 
 export const AdminScheduleLacture = () => {
   const [data, setData] = useState(initialData);
+  const [AllLacture, setAllLacture] = useState([])
+  const [state, setState] = useState(false)
   const toast = useToast()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const apiUrl = import.meta.env.VITE_API_URL;
   function handleChange(e) {
     const { name, value } = e.target;
     setData((pre) => {
@@ -28,7 +42,7 @@ export const AdminScheduleLacture = () => {
   }
 
   function handleAddLacture() {
-    axios.post(`https://ideaclan-5twr.onrender.com/lacture/schedule`,data)
+    axios.post(`${apiUrl}/lacture/schedule`,data)
     .then((res)=>{
       console.log(res.data)
       toast({
@@ -41,6 +55,22 @@ export const AdminScheduleLacture = () => {
     })
     setData(initialData)
   }
+
+  function getAllLactures() {
+    axios.get(`${apiUrl}/lacture/all-lacture`)
+    .then((res)=>{
+      console.log(res.data.lactures)
+    })
+  }
+
+  function ViewAllLacture(){
+    onOpen()
+    setState(!state)
+  }
+
+  useEffect(()=>{
+    getAllLactures()
+  },[state])
 
   return (
     <div>
@@ -105,6 +135,36 @@ export const AdminScheduleLacture = () => {
           Schedule
         </Button>
       </Box>
+      <Button onClick={ViewAllLacture} position="absolute" top="100px" left="100px">View Lactures</Button>
+      <Modal isOpen={isOpen} onClose={onClose} >
+        <ModalOverlay />
+        <ModalContent maxW="700px">
+          <ModalHeader>Today's Lactures</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody >
+            
+            {AllLacture?.map((ele)=>{
+              return <Box boxShadow="base" borderRadius="10px" m='5px' display="flex" justifyContent="space-around" p="10px"> 
+                <Box  w="150px">
+                  <Text>{"Course:"}</Text>
+                  <Text>{ele.courses}</Text>
+                </Box>
+                <Box  w="150px" alignSelf="center">
+                  <Text>{"Instructor"}</Text>
+                  <Text>{ele.instructor}</Text>
+                </Box>
+                <Box  w="150px" alignSelf="center">
+                  <Text>{"Timing"}</Text>
+                  <Text>{ele.timing}</Text>
+                </Box>
+                <Button alignSelf="center" colorScheme="twitter" variant="ghost">Edit</Button>
+              </Box>
+            })}
+          </ModalBody>
+
+         
+        </ModalContent>
+      </Modal>
     </div>
   );
 };

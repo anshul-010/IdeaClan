@@ -14,11 +14,11 @@ export const AdminAddCourses = () => {
   const [courseName, setCourseName] = useState("")
   const [instructor, setInstructorName] = useState("")
   const [loading, setLoading] = useState(false)
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   function handleAddCourse() {
     setLoading(true)
 
-    axios.post(`https://ideaclan-5twr.onrender.com/courses/add-courses`,{courseName,instructor})
+    axios.post(`${apiUrl}/courses/add-courses`,{courseName,instructor})
     .then((res)=>{
     setLoading(false)
 
